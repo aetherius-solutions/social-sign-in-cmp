@@ -1,16 +1,22 @@
-//package com.cmpmodular.socialSignIn
-//
-//import androidx.compose.runtime.Composable
-//import androidx.compose.ui.Modifier
-//
-//@Composable
-//internal expect fun GoogleLoginButton(
-//    onResponse: (AuthResponse) -> Unit,
-//    modifier: Modifier = Modifier
-//)
-//
-//@Composable
-//internal expect fun AppleLoginButton(
-//    modifier: Modifier = Modifier,
-//    onResponse: (AuthResponse) -> Unit
-//)
+package com.cmpmodular.socialSignIn
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+
+import org.jetbrains.compose.resources.DrawableResource
+
+@Composable
+expect fun GoogleLoginButton(
+    webClientId: String,
+    backgroundColor: Color? = null,
+    drawableResource: DrawableResource? = null,
+    onResponse: (AuthResponse) -> Unit,
+    modifier: Modifier = Modifier
+)
+
+@Composable
+internal expect fun AppleLoginButton(
+    modifier: Modifier = Modifier,
+    onResponse: (AuthResponse) -> Unit
+)

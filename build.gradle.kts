@@ -34,6 +34,7 @@ kotlin {
         androidMain.dependencies {
             api(compose.preview)
             api(libs.androidx.activity.compose)
+            implementation("com.google.android.gms:play-services-auth:21.0.0")
         }
         commonMain.dependencies {
            api(compose.runtime)
