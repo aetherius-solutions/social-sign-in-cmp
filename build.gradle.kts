@@ -6,9 +6,25 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     kotlin("plugin.serialization") version "2.0.21"
+    id("org.jetbrains.kotlin.native.cocoapods")
 }
 
 kotlin {
+    cocoapods {
+        version = "1.0.0"
+        summary = "Social Sign In module"
+        homepage = "https://your.website"
+        ios.deploymentTarget = "14.1"
+        framework {
+            baseName = "socialsignin"
+            isStatic = true
+        }
+
+        pod("GoogleSignIn") {
+            extraOpts += listOf("-compiler-option", "-fmodules")
+        }
+    }
+
     androidTarget {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_17)

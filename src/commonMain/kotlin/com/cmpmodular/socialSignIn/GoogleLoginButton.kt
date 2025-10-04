@@ -16,7 +16,9 @@ expect fun GoogleLoginButton(
 )
 
 @Composable
-internal expect fun AppleLoginButton(
+expect fun AppleLoginButton(
+    backgroundColor: Color? = null,
+    drawableResource: DrawableResource? = null,
     modifier: Modifier = Modifier,
     onResponse: (AuthResponse) -> Unit
 )

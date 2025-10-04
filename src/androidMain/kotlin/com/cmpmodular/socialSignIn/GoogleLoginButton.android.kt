@@ -75,11 +75,10 @@ actual fun GoogleLoginButton(
                             IntentSenderRequest.Builder(result.pendingIntent.intentSender).build()
                         )
                     } catch (e: IntentSender.SendIntentException) {
-                        println("aleksa exception: ${e.message}")
+                        onResponse.invoke(AuthResponse.Error("Sign-in failed"))
                     }
                 }
                 .addOnFailureListener(activity) { e ->
-                    println("Sign-in failed: ${e.message}")
                     onResponse.invoke(AuthResponse.Error("Sign-in failed"))
                 }
         }
@@ -97,7 +96,9 @@ private val ApiException.fullErrorMessage: String
     }
 
 @Composable
-internal actual fun AppleLoginButton(
+actual fun AppleLoginButton(
+    backgroundColor: Color?,
+    drawableResource: DrawableResource?,
     modifier: Modifier,
     onResponse: (AuthResponse) -> Unit
 ) {

@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import cmpmodular.socialsignin.generated.resources.Res
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 
@@ -38,6 +37,7 @@ internal fun GoogleButtonUI(
 
 @Composable
 internal fun AppleButtonUI(
+    backgroundColor: Color,
     drawableResource: DrawableResource,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -49,7 +49,7 @@ internal fun AppleButtonUI(
             .clickable {
                 onClick.invoke()
             }
-            .background(Color.White)
+            .background(backgroundColor)
             .padding(16.dp),
         painter = painterResource(drawableResource),
         contentDescription = null
