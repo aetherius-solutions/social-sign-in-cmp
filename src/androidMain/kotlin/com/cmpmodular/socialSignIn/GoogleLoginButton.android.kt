@@ -94,13 +94,3 @@ private val ApiException.fullErrorMessage: String
             "status: $status",
         ).joinToString("\n")
     }
-
-@Composable
-actual fun AppleLoginButton(
-    backgroundColor: Color?,
-    drawableResource: DrawableResource?,
-    modifier: Modifier,
-    onResponse: (AuthResponse) -> Unit
-) {
-    // Stub for Apple Sign-In
-}

@@ -15,7 +15,7 @@ import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
-internal fun GoogleButtonUI(
+internal fun AppleButtonUI(
     backgroundColor: Color,
     drawableResource: DrawableResource,
     onClick: () -> Unit,
