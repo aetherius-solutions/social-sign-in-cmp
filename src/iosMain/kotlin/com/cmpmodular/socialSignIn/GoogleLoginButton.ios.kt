@@ -58,7 +58,7 @@ private fun googleLogin(
             result != null -> {
                 result.user.refreshTokensIfNeededWithCompletion { user, nsError ->
                     user?.idToken?.let { token->
-                        onLoggedIn(AuthResponse.Success(token.tokenString))
+                        onLoggedIn(AuthResponse.Success(token.tokenString, user.accessToken.tokenString))
                     }
                 }
             }

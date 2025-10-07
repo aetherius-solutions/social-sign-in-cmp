@@ -40,7 +40,7 @@ actual fun AppleLoginButton(
                 onResult = { result ->
                     if (result.isSuccess) {
                         result.getOrNull()?.let { res ->
-                            onResponse.invoke(AuthResponse.Success(res))
+                            onResponse.invoke(AuthResponse.Success(res, null))
                         }
 
                     } else {

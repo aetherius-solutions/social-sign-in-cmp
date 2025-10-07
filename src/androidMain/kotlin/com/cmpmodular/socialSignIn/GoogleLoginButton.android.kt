@@ -35,7 +35,7 @@ actual fun GoogleLoginButton(
             val idToken = credential.googleIdToken
             when {
                 !idToken.isNullOrEmpty() -> {
-                    onResponse.invoke(AuthResponse.Success(idToken))
+                    onResponse.invoke(AuthResponse.Success(idToken, null))
                 }
                 else -> {
                     onResponse.invoke(AuthResponse.Error("Token empty"))
