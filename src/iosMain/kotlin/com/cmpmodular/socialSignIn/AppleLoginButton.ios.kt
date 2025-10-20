@@ -3,8 +3,8 @@ package com.cmpmodular.socialSignIn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import cmpmodular.socialsignin.generated.resources.Res
-import cmpmodular.socialsignin.generated.resources.ic_apple
+import social_sign_in_cmp.generated.resources.ic_apple
+import social_sign_in_cmp.generated.resources.Res
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.ObjCAction
 import kotlinx.cinterop.addressOf

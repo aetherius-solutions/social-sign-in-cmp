@@ -9,12 +9,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import cmpmodular.socialsignin.generated.resources.Res
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.common.api.ApiException
 import org.jetbrains.compose.resources.DrawableResource
-import cmpmodular.socialsignin.generated.resources.ic_google
+import social_sign_in_cmp.generated.resources.Res
+import social_sign_in_cmp.generated.resources.ic_google
 
 @Composable
 actual fun GoogleLoginButton(

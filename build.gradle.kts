@@ -1,12 +1,18 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeCompiler)
-    kotlin("plugin.serialization") version "2.0.21"
-    id("org.jetbrains.kotlin.native.cocoapods")
+    id("org.jetbrains.kotlin.multiplatform") version "2.1.20"
+    id("com.android.library") version "8.9.2"
+    id("org.jetbrains.compose") version "1.8.0-beta02"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.1.20"
+    kotlin("plugin.serialization") version "2.1.20"
+    id("org.jetbrains.kotlin.native.cocoapods") version "2.1.20"
+}
+
+repositories {
+    google()
+    mavenCentral()
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
 kotlin {
@@ -47,31 +53,34 @@ kotlin {
     }
 
     sourceSets {
-        androidMain.dependencies {
-            api(compose.preview)
-            api(libs.androidx.activity.compose)
-            implementation("com.google.android.gms:play-services-auth:21.0.0")
+        val commonMain by getting {
+            dependencies {
+                api(compose.runtime)
+                api(compose.foundation)
+                api(compose.material3)
+                api(compose.ui)
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.2")
+                api(compose.components.resources)
+            }
         }
-        commonMain.dependencies {
-           api(compose.runtime)
-           api(compose.foundation)
-           api(compose.material3)
-           api(compose.ui)
-           api(compose.components.resources)
-           api(compose.components.uiToolingPreview)
-
-            implementation(libs.kotlinx.datetime)
+        val androidMain by getting {
+            dependencies {
+                api("androidx.activity:activity-compose:1.10.1")
+                api("androidx.compose.ui:ui-tooling-preview:1.8.0-beta02")
+                implementation("com.google.android.gms:play-services-auth:21.0.0")
+            }
         }
     }
 }
 
 android {
     namespace = "com.cmpmodular.socialsignin"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileSdk = 35
 
     defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
+        minSdk = 24
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -92,6 +101,7 @@ android {
             isMinifyEnabled = false
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17

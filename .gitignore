@@ -1,0 +1,61 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# Kotlin Multiplatform
+*.klib
+*.kexe
+*.ktooling
+*.kdoc
+
+# Android
+/local.properties
+/.cxx/
+/captures/
+/.externalNativeBuild/
+/.gradle/
+/build/
+*.iml
+
+# IntelliJ IDEA / Android Studio
+.idea/
+*.iws
+*.iml
+*.ipr
+*.log
+*.hprof
+.gradle/
+
+# Mac OS
+.DS_Store
+
+# Others
+.gradle/
+build/
+.gradle-cache/
+
+# Kotlin daemon
+kotlin-daemon-*
+
+# CocoaPods
+Pods/
+*.xcworkspace
+*.xcuserdata
+*.lock
+
+# Xcode
+build/
+DerivedData/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+
+# Misc
+*.swp
+*.swo
+*.DS_Store
